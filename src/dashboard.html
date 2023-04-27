@@ -31,25 +31,25 @@
                 <li>
                     <a class="active" id="dashboard-btn">
                         <span><i class="fas fa-tachometer-alt"></i> </span>
-                        <span>Dashboard</span>
+                        <span>Usuarios</span>
                     </a>
                 </li>
                 <li>
                     <a id="dashboard-manage">
                         <span><i class="fas fa-user"></i> </span>
-                        <span>My Users</span>
+                        <span>Buscar Usuarios</span>
                     </a>
                 </li>
                 <li>
                     <a id="dashboard-settings">
                         <span><i class="fas fa-cog"></i> </span>
-                        <span>Settings</span>
+                        <span>Ajustes</span>
                     </a>
                 </li>
                 <li>
                     <a id="logoutbtn">
                         <span><i class="fas fa-sign-out-alt"></i> </span>
-                        <span>Logout</span>
+                        <span>Cerrar Sesion</span>
                     </a>
                 </li>
             </ul>
@@ -67,15 +67,14 @@
                     <label for="nav-toggle">
                         <i class="fas fa-bars"></i>
                     </label>
-                    Dashboard
                 </h2>
             </div>
             <div class="user-wrapper" id="user_image">
                 <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
                     alt="person">
                 <div>
-                    <h4>Admin</h4>
-                    <small>Admin</small>
+                    <h4>Administrador</h4>
+                    <small>Administrador</small>
                 </div>
             </div>
 
@@ -103,9 +102,9 @@
             </section>
 
             <section class="users_manage">
-                <h1>Manage Users</h1>
-                <p>Puedes filtrar por Id, Nombre, Correo Electrónico y sesion [ Puedes eliminar usuarios ]</p>
-                <i class="fas fa-search"></i>
+                <h1>Buscar Usuarios</h1>
+                <p>Puedes filtrar por Id, Nombre, Correo Electrónico y sesion [ Puedes eliminar usuarios de la DB ]</p>
+                <i class="fas fa-search" id="lupa"></i>
                 <input type="text" id="searchInput" placeholder="Buscar usuarios...">
                 <table id="users-table">
                     <thead>
@@ -124,58 +123,58 @@
             </section>
 
             <section class="settings">
-                <h1>Settings</h1>
-                <p>1. Change your password</p>
+                <h1>Ajustes de mi cuenta</h1>
+                <p>1. Cambiar mi contraseña</p>
                 <form id="updatePasswordButton">
                     <div class="input-group">
-                        <label for="new_password">New Password</label>
-                        <input type="password" id="new_password" placeholder="Enter your new password">
+                        <label for="new_password">Nueva Contraseña</label>
+                        <input type="password" id="new_password" placeholder="Ingresar nueva contraseña">
                     </div>
                     <div class="input-group">
-                        <label for="confirm_password">Confirm Password</label>
-                        <input type="password" id="confirm_password" placeholder="Confirm your new password">
+                        <label for="confirm_password">Confirmar Contraseña</label>
+                        <input type="password" id="confirm_password" placeholder="Confirmar nueva contraseña">
                     </div>
                     <button type="submit" class="btn">Change Password</button>
                 </form>
-                <p>2. Change your email</p>
+                <p>2. Cambiar el Email</p>
                 <form id="updateEmailButton">
                     <div class="input-group">
-                        <label for="new_email">New Email</label>
-                        <input type="email" id="new_email" placeholder="Enter your new email">
+                        <label for="new_email">Nuevo Email</label>
+                        <input type="email" id="new_email" placeholder="Ingresar nuevo Email">
                     </div>
                     <div class="input-group">
-                        <label for="confirm_email">Confirm Email</label>
-                        <input type="email" id="confirm_email" placeholder="Confirm your new email">
+                        <label for="confirm_email">Confirmar Email</label>
+                        <input type="email" id="confirm_email" placeholder="Confirmar nuevo Email">
                     </div>
-                    <button type="submit" class="btn">Change Email</button>
+                    <button type="submit" class="btn">Enviar</button>
                 </form>
-                <p>3. Change your username</p>
+                <p>3. Cambiar mi nombre de usuario</p>
                 <form id="updateNameButton">
                     <div class="input-group">
-                        <label for="new_username">New Username</label>
-                        <input type="text" id="new_username" placeholder="Enter your new username">
+                        <label for="new_username">Nuevo Usuario</label>
+                        <input type="text" id="new_username" placeholder="Ingresa tu nuevo nombre">
                     </div>
                     <div class="input-group">
-                        <label for="confirm_username">Confirm Username</label>
-                        <input type="text" id="confirm_username" placeholder="Confirm your new username">
+                        <label for="confirm_username">Confirmar Usuario</label>
+                        <input type="text" id="confirm_username" placeholder="Confirmar tu nombre">
                     </div>
-                    <button type="submit" class="btn">Change Username</button>
+                    <button type="submit" class="btn">Enviar</button>
                 </form>
-                <p>4. Change your profile picture</p>
+                <p>4. Cambiar foto de perfil</p>
                 <form id="updatePhotoButton">
                     <div class="input-group">
-                        <label for="profile_picture">Profile Picture</label>
-                        <input type="file" id="profile_picture" placeholder="Enter your profile picture">
+                        <label for="profile_picture">Foto de perfil</label>
+                        <input type="file" id="profile_picture" placeholder="Subir Foto de perfil">
                     </div>
-                    <button type="submit" class="btn">Change Profile Picture</button>
+                    <button type="submit" class="btn">Enviar</button>
                 </form>
-                <p>5. Delete your account</p>
+                <p>5. Eliminar mi cuenta</p>
                 <form id="deleteAccountButton">
                     <div class="input-group">
-                        <label for="delete_account">Delete Account</label>
-                        <input type="text" id="confirm_delete_password" placeholder="Confirm your password">
+                        <label for="delete_account">Eliminar Cuenta</label>
+                        <input type="text" id="confirm_delete_password" placeholder="Confirmar Contraseña">
                     </div>
-                    <button type="submit" class="btn">Delete</button>
+                    <button type="submit" class="btn">Enviar</button>
                 </form>
             </section>
 

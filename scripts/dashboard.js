@@ -28,7 +28,7 @@ if (user) {
 <img src="${photoURL}" alt="person">
 <div>
     <h4>${displayName}</h4>
-    <small>Administrator</small>
+    <small>Administrador</small>
 </div>
 `;
 

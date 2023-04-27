@@ -551,11 +551,17 @@ main {
 
 #searchInput {
   border: 2px solid black;
-  width: 20%;
+  width: 300px;
   padding: 5px;
   border-radius: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+@media (max-width: 400px) {
+  #lupa {
+    display: none;
+  }
 }
 
 .users_manage {
@@ -686,3 +692,17 @@ label {
   margin-bottom: 0.5rem;
 }
 
+
+.delete-user-btn{
+  border: none;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+}
+
+.delete-user-btn:hover{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: #ff0000 1px solid;
+}

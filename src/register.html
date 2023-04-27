@@ -19,36 +19,35 @@
                 <img src="../images/logo.png" alt="logo">
             </div>
             <div class="login-card-header">
-                <h1>Sign Up</h1>
-                <div>Please register to use the platform</div>
+                <h1>Registrate</h1>
+                <div>Por favor registrate para usar la plataforma</div>
             </div>
             <form class="login-card-form" id="formRegister" novalidate>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">person</span>
-                    <input type="text" placeholder="Enter Username" id="usernameForm" required>
+                    <input type="text" placeholder="Ingresar Nombre" id="usernameForm" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">mail</span>
-                    <input type="email" placeholder="Enter Email" id="emailForm" autofocus required>
+                    <input type="email" placeholder="Ingresar Email" id="emailForm" autofocus required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">lock</span>
-                    <input type="password" placeholder="Enter Password" id="passwordForm" required>
+                    <input type="password" placeholder="Ingresar Contraseña" id="passwordForm" required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">upload</span>
                     <input type="file" id="file-avatar" name="input-file" hidden required />
-                    <button type="button" class="btn-upload" accept="image/*" id="uploadBtn">Upload Profile
-                        Picture</button>
+                    <button type="button" class="btn-upload" accept="image/*" id="uploadBtn">Subir foto de perfil</button>
                 </div>
-                <button type="submit">Sign Up</button>
+                <button type="submit">Registrate</button>
             </form>
             <div class="login-card-footer">
-                Do you have an account? <a href="../index.html"> Sign In page.</a>
+                Tienes una cuenta? <a href="../index.html"> Inicia sesion.</a>
             </div>
         </div>
         <div class="login-card-social">
-            <div>Other Sign-In Options</div>
+            <div>Otras formas de iniciar sesion</div>
             <div class="login-card-social-btns">
                 <button id="facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
@@ -96,9 +95,9 @@
 
         window.addEventListener('resize', function () {
             if (window.innerWidth < 768) {
-                mybtn.innerHTML = "Upload Picture";
+                mybtn.innerHTML = "Subir Foto";
             } else {
-                mybtn.innerHTML = "Upload Profile Picture";
+                mybtn.innerHTML = "Subir foto de perfil";
             }
         });
 

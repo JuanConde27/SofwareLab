@@ -33,7 +33,7 @@ updatePasswordButton.addEventListener('submit', async (e) => {
         Swal.fire({
             icon: 'error',
             title: 'Error al actualizar la contraseña',
-            text: 'La contraseña no es válida',
+            text: 'La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número',
             showConfirmButton: false,
             timer: 1500
         });
@@ -258,6 +258,12 @@ updateNameButton.addEventListener('submit', async (e) => {
                             name: newName
                         });
                     }
+                    //obtener el user de session storage
+                    let user = JSON.parse(sessionStorage.getItem("user"));
+                    //actualizar el nombre en el user de session storage
+                    user.displayName = newName;
+                    //actualizar el user de session storage
+                    sessionStorage.setItem("user", JSON.stringify(user));
                     console.log("Nombre actualizado correctamente");
                     Swal.fire({
                         icon: 'success',
@@ -306,22 +312,34 @@ updateNameButton.addEventListener('submit', async (e) => {
 
 const updatePhotoButton = document.getElementById('updatePhotoButton');
 
+//verificar que se haya seleccionado una imagen 
+
 updatePhotoButton.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const newPhoto = document.getElementById('profile_picture');
+    if (newPhoto.files.length === 0) {
+        console.error("Error al actualizar la foto de perfil: No se seleccionó ninguna imagen");
+        Swal.fire({
+            icon: 'error',
+            title: 'Error al actualizar la foto de perfil',
+            text: 'No se seleccionó ninguna imagen',
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return
+    }
     const file = newPhoto.files[0];
     const storageRef = ref(storage);
     const fileRef = ref(storageRef, file.name);
 
-    //verificar que se haya seleccionado una foto
-
-    if (file === undefined || file === null || file === "" || fileRef === undefined || fileRef === null || fileRef === "") {
-        console.error("Error al actualizar la foto de perfil: No se ha seleccionado ninguna foto");
+    //verificar que sea una imagen
+    if (file.type.indexOf("image") === -1) {
+        console.error("Error al actualizar la foto de perfil: El archivo seleccionado no es una imagen");
         Swal.fire({
             icon: 'error',
             title: 'Error al actualizar la foto de perfil',
-            text: 'No se ha seleccionado ninguna foto',
+            text: 'El archivo seleccionado no es una imagen',
             showConfirmButton: false,
             timer: 1500
         });
@@ -345,6 +363,12 @@ updatePhotoButton.addEventListener('submit', async (e) => {
                             });
                             console.log("Foto de perfil actualizada correctamente");
                         }
+                        //obtener el user de session storage
+                        let user = JSON.parse(sessionStorage.getItem("user"));
+                        //actualizar la foto de perfil en el user de session storage
+                        user.photoURL = url;
+                        //actualizar el user de session storage
+                        sessionStorage.setItem("user", JSON.stringify(user));
                         Swal.fire({
                             icon: 'success',
                             title: 'Foto de perfil actualizada correctamente',
@@ -410,6 +434,8 @@ deleteAccountButton.addEventListener('submit', async (e) => {
                         deleteDoc(doc.ref);
                         console.log("Cuenta eliminada correctamente");
                     }
+                    sessionStorage.removeItem("user");
+                    localStorage.removeItem("user");
                     Swal.fire({
                         icon: 'success',
                         title: 'Cuenta eliminada correctamente',

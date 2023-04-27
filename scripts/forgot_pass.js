@@ -23,13 +23,57 @@ form.addEventListener('submit', (e) => {
     // Enviar el correo electrónico de recuperación de contraseña
     sendPasswordResetEmail(auth, email)
         .then(() => {
-            alert('Se ha enviado un correo electrónico para restablecer la contraseña. Por favor, revise su bandeja de entrada.');
+            Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+            }).fire({
+                icon: 'success',
+                title: 'Correo enviado',
+                text: 'Se ha enviado un correo electrónico para restablecer la contraseña.',
+            });
             window.location.href = '../index.html';
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
 
-            alert(errorMessage);
+            if (errorCode === 'auth/invalid-email') {
+                Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                }).fire({
+                    icon: 'error',
+                    title: 'Correo inválido',
+                    text: 'El correo electrónico proporcionado no es válido.',
+                });
+            }
+            else if (errorCode === 'auth/user-not-found') {
+                Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                }).fire({
+                    icon: 'error',
+                    title: 'Usuario no encontrado',
+                    text: 'No existe un usuario con el correo electrónico proporcionado.',
+                });
+            }
+            else {
+                Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                }).fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: errorMessage,
+                });
+            }
         });
 });
