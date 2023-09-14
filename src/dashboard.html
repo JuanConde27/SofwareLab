@@ -41,6 +41,12 @@
                     </a>
                 </li>
                 <li>
+                    <a id="dashboard-bloogs">
+                        <span><i class="fas fa-book"></i> </span>
+                        <span>Manejar Libros</span>
+                    </a>
+                </li>
+                <li>
                     <a id="dashboard-settings">
                         <span><i class="fas fa-cog"></i> </span>
                         <span>Ajustes</span>
@@ -85,10 +91,12 @@
         <main class="sections">
             <section class="dashboard_table">
                 <h1>Usuarios Registrados</h1>
+                <p>> Puedes ver los usuarios registrados en la base de datos</p>
                 <table id="users-table_dashboard">
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Foto</th>
                             <th>Nombre</th>
                             <th>Correo Electrónico</th>
                             <th>Fecha</th>
@@ -103,13 +111,13 @@
 
             <section class="users_manage">
                 <h1>Buscar Usuarios</h1>
-                <p>Puedes filtrar por Id, Nombre, Correo Electrónico y sesion [ Puedes eliminar usuarios de la DB ]</p>
-                <i class="fas fa-search" id="lupa"></i>
+                <p>> Puedes filtrar por Id, Nombre, Correo Electrónico y sesion [ Puedes eliminar usuarios de la DB ]</p>
                 <input type="text" id="searchInput" placeholder="Buscar usuarios...">
                 <table id="users-table">
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Foto</th>
                             <th>Nombre</th>
                             <th>Correo Electrónico</th>
                             <th>Fecha</th>
@@ -178,6 +186,27 @@
                 </form>
             </section>
 
+            <section class="books">
+                <h1>Mis libros</h1>
+                <p>> Puedes agregar, editar y eliminar libros de tu biblioteca</p>
+                <button class="btn" id="add_book">Agregar Libro</button>
+                <table id="books-table">
+                    <thead id="books-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                            <th>Editorial</th>
+                            <th>Genero</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los datos de los libros serán agregados aquí dinámicamente mediante JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+
             <!-- Add More Components Here -->
 
         </main>
@@ -191,6 +220,7 @@
     <script src="../scripts/dashboard_table.js" type="module"></script>
     <script src="../scripts/dashboard_manage.js" type="module"></script>
     <script src="../scripts/dashboard_settings.js" type="module"></script>
+    <script src="../scripts/settings_books.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

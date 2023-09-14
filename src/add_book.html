@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Libro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    form {
+      margin: 50px auto;
+      max-width: 500px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.096);
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #4783d1;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e758e;
+    }
+
+    input::placeholder {
+      color: #bbb;
+    }
+
+    #regresar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 20px;
+      font-size: 20px;
+      text-decoration: underline;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Agregar Libro</h1>
+  <a id="regresar" href="../src/dashboard.html">Regresar</a>
+  <form id="agregarLibro">
+    <input type="text" name="title" id="titulo" placeholder="Titulo">
+    <input type="text" name="author" id="autor" placeholder="Autor">
+    <input type="text" name="editorial" id="editorial" placeholder="Editorial">
+    <input type="text" name="genero" id="genero" placeholder="Genero">
+    <input type="submit" value="Agregar">
+  </form>
+  <script src="../firebase.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module">
+
+    import { getFirestore, collection, setDoc, doc, getDocs, query, where, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+
+    const db = getFirestore();
+    const auth = getAuth();
+
+    const agregarLibro = document.getElementById("agregarLibro");
+    const titulo = document.getElementById("titulo");
+    const autor = document.getElementById("autor");
+    const editorial = document.getElementById("editorial");
+    const genero = document.getElementById("genero");
+
+    const id = Math.random().toString(36).substring(2);
+
+    agregarLibro.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (titulo.value === "" || autor.value === "" || editorial.value === "" || genero.value === "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algun campo esta vacio',
+        })
+        return;
+      }
+      setDoc(doc(db, "books", id), {
+        ID: id,
+        title: titulo.value,
+        author: autor.value,
+        editorial: editorial.value,
+        genero: genero.value
+      })
+        .then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Libro agregado',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            agregarLibro.reset();
+            window.location.href = "../src/dashboard.html";
+          })
+        })
+        .catch((error) => {
+          console.error("Error writing document: ", error);
+        });
+    });
+
+    const regresar = document.getElementById("regresar");
+    //cuando la pantalla sea menor a 768px
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 600) {
+        //cabiar el texto del boton
+        regresar.innerText = "<-";
+      } else {
+        regresar.innerText = "Regresar";
+      }
+    });
+
+  </script>
+</body>
+
+</html>

@@ -12,11 +12,13 @@ getDocs(usersCollection).then((querySnapshot) => {
         let table = document.getElementById("users-table");
         let row = table.insertRow(-1);
         let id = row.insertCell(0);
-        let name = row.insertCell(1);
-        let email = row.insertCell(2);
-        let date = row.insertCell(3);
-        let provider = row.insertCell(4);
+        let photo = row.insertCell(1);
+        let name = row.insertCell(2);
+        let email = row.insertCell(3);
+        let date = row.insertCell(4);
+        let provider = row.insertCell(5);
         id.innerHTML = doc.id;
+        photo.innerHTML = `<img src="${doc.data().photoURL}" alt="user photo" width="50px" height="50px" class="rounded-circle">`;
         name.innerHTML = doc.data().name;
         email.innerHTML = doc.data().email;
         date.innerHTML = doc.data().dateCreated;
@@ -58,6 +60,7 @@ function renderUsersTable(filteredUsers) {
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Correo Electrónico</th>
                     <th>Fecha</th>
@@ -68,6 +71,7 @@ function renderUsersTable(filteredUsers) {
                 ${filteredUsers.map(user => `
                     <tr>
                         <td>${user.ID}</td>
+                        <td><img src="${user.photoURL}" alt="user photo" width="50px" height="50px" class="rounded-circle"></td>
                         <td>${user.name}</td>
                         <td>${user.email}</td>
                         <td>${user.dateCreated}</td>

@@ -59,6 +59,9 @@ dashboard_btn.addEventListener('click', () => {
     const element3 = document.getElementsByClassName('users_manage');
     element3[0].style.display = 'none';
 
+    const element4 = document.getElementsByClassName('books');
+    element4[0].style.display = 'none';
+
     const element = document.getElementsByClassName('dashboard_table');
     element[0].style.display = 'block';
 });
@@ -74,6 +77,9 @@ dashboard_manage.addEventListener('click', () => {
     // 2 
     const element2 = document.getElementsByClassName('settings');
     element2[0].style.display = 'none';
+
+    const element4 = document.getElementsByClassName('books');
+    element4[0].style.display = 'none';
     // 3
     const element = document.getElementsByClassName('users_manage');
     element[0].style.display = 'block';
@@ -90,6 +96,27 @@ dashboard_settings.addEventListener('click', () => {
     const element2 = document.getElementsByClassName('users_manage');
     element2[0].style.display = 'none';
 
+    const element4 = document.getElementsByClassName('books');
+    element4[0].style.display = 'none';
+
     const element = document.getElementsByClassName('settings');
     element[0].style.display = 'block';
+});
+
+const dashboard_blogs = document.getElementById('dashboard-bloogs');
+
+dashboard_blogs.addEventListener('click', () => {
+     //poner las demas section en display none
+        const element1 = document.getElementsByClassName('dashboard_table');
+        element1[0].style.display = 'none';
+
+        const element2 = document.getElementsByClassName('users_manage');
+        element2[0].style.display = 'none';
+
+        const element = document.getElementsByClassName('settings');
+        element[0].style.display = 'none';
+
+        const element3 = document.getElementsByClassName('books');
+        element3[0].style.display = 'block';
+
 });

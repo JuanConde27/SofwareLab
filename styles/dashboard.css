@@ -532,6 +532,86 @@ main {
   }
 }
 
+/*****************  **************************/
+
+#books-table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 1.2em;
+}
+
+#books-table thead {
+  background-color: #ffffffde;
+  color: #000000;
+}
+
+#books-table th,
+#books-table td {
+  background-color: white;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #000000;
+}
+
+#books-table tr:nth-child(even) {
+  background-color: #f2f2f200;
+}
+
+#books-table th {
+  width: auto;
+}
+
+#books-table td:first-child {
+  width: auto;
+}
+
+#books-table td:nth-child(2) {
+  width: auto;
+}
+
+#books-table td:nth-child(3) {
+  width: auto;
+}
+
+#books-table td:nth-child(4) {
+  width: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  /* Modifica la tabla para que sea responsive en dispositivos móviles */
+  #books-table td,
+  #books-table th {
+    font-size: 0.8em;
+    text-align: center;
+    padding: 6px;
+    display: block;
+  }
+  
+  #books-table td:first-child {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 6px;
+  }
+  
+  #books-table td:not(:first-child) {
+    width: 100%;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 6px;
+  }
+  
+  #books-table td:before {
+    /* Agrega el encabezado de cada columna como etiqueta "data-label" */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+
 
 .users_manage h1 {
   font-family: "Poppins", sans-serif;
@@ -572,8 +652,8 @@ main {
   display: none;
 }
 
-.dashboard_table {
-  
+.books {
+  display: none;
 }
 
 /* Estilos para la sección de configuración */
@@ -705,4 +785,85 @@ label {
   background-color: transparent;
   cursor: pointer;
   border-bottom: #ff0000 1px solid;
+}
+
+.books h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 15px;
+}
+
+#add_book {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2f78ff;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#add_book:hover {
+  background-color: #2969c9;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#delete_book {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#delete_book:hover {
+  background-color: #e60000;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#edit_book {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #2f78ff;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#edit_book:hover {
+  background-color: #2969c9;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.rounded-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
